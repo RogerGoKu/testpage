@@ -1,0 +1,36 @@
+<html>
+<head>
+	<meta charset="utf8">
+
+</head>
+<body>
+	
+<section>
+	<span id="text">100</span>
+	<button id="upBtn">up</button>
+	<button id="downBtn">down</button>
+</section>
+
+<script>
+	'use strict';
+	
+	function $(id) {
+		return document.querySelector(`${id}`);
+	}
+	
+	function View(controller) {
+		let upBtn = $('upBtn');
+		let downBtn = $('downBtn');
+		let textSpan = $('text');
+		
+		this.render = function (model) {
+			textSpan.innerHTML = model.getValue();
+		};
+		
+		upBtn.onclick = function () controller.up;
+		downBtn.onclick = function () controller.down;
+	}
+</script>
+
+</body>
+</html>
