@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport">
+	<title></title>
+	<script type="text/javascript">
+		;(function(win) {
+		    var doc = win.document;
+		    var docEl = doc.documentElement;
+		    var dovElW = docEl.clientWidth;
+		    var dpr = 0;
+		    var scale = 0;
+
+		    var isAndroid = win.navigator.appVersion.match(/android/gi);
+		    var isIPhone = win.navigator.appVersion.match(/iphone/gi);
+		    var devicePixelRatio = win.devicePixelRatio;
+		    var metaEl = doc.querySelector('meta[name="viewport"]');
+		    if (isIPhone) {
+		    // iOS下，对于2和3的屏，用2倍的方案，其余的用1倍方案
+		        if (devicePixelRatio >= 3 && (!dpr || dpr >= 3)) {                
+		            dpr = 3;
+		        } else if (devicePixelRatio >= 2 && (!dpr || dpr >= 2)){
+		            dpr = 2;
+		        } else {
+		            dpr = 1;
+		        }
+		    } else {
+		        // 其他设备下，仍旧使用1倍的方案
+		        dpr = 1;
+		    }
+		    scale = 1 / dpr;
+		    metaEl.setAttribute('content', 'width=device-width,initial-scale=' + scale + ', maximum-scale=' + scale + ', minimum-scale=' + scale + ', user-scalable=no');
+		    if (doc.readyState === 'complete') {	//加载完时
+				//设置字体大小，100px
+		        docEl.style.fontSize = dovElW * 100*dpr / 750 + 'px';
+		    } else {
+		        doc.addEventListener('DOMContentLoaded', function(e) {
+					//设置字体大小，100px
+		            docEl.style.fontSize = dovElW * 100*dpr  / 750 + 'px';
+		        }, false);
+		    }
+		    if (docEl.firstElementChild) {
+		            docEl.firstElementChild.appendChild(metaEl);
+		        } else {
+		            var wrap = doc.createElement('div');
+		            wrap.appendChild(metaEl);
+		            doc.write(wrap.innerHTML);
+		    }
+		})(window);
+
+	</script>
+	<style type="text/css">
+		.battery.icon{color: #000;position: absolute;margin-left: .2em;margin-top: .6em;width: 1.3em;height: .7em;border-radius: .2em;border: .1em solid currentColor;}
+		.battery.icon:before{content: '';position: absolute;right: -.3em;top:.1em;width: .2em;height: .3em;border-radius: 0 .2em .2em 0;border-top: solid .1em currentColor;border-bottom: solid .1em currentColor;border-right: solid .1em currentColor;}
+		.battery.icon:after{content: '';position: absolute;left: .1em;top: .1em;width: 0em;height: .5em;background-color: currentColor;animation:charge 2s infinite linear;}
+
+		@keyframes charge{
+			form{
+				width:0em;
+			}
+			to{
+				width:1.1em;
+			}
+		}
+
+		.heart{position: relative;width: 60px;height: 60px;background-color: #f00;transform: rotate(45deg);margin-left: 100px;}
+		.heart:after,.heart:before{content: '';position: absolute;border-radius: 30px;width: 60px;height: 120px;background-color: #f00;}
+		.heart:before{top:0px;left: -30px;}
+		.heart:after{top:-30px;left: 0px;}
+
+	</style>
+</head>
+<body>
+<p class="battery icon"></p>
+
+<p class="heart"></p>
+
+</body>
+</html>

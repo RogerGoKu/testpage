@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<canvas id="myCanvas" width="200" height="100" style="border: 1px solid #000;"></canvas>
+<script>
+    var c=document.getElementById("myCanvas");
+    var cxt=c.getContext("2d");
+    cxt.fillStyle="#0000ff";
+    cxt.fillRect(10,20,110,50);
+    cxt.moveTo(0,0);
+    cxt.lineTo(100,100);
+    cxt.stroke();
+    cxt.beginPath();
+    cxt.arc(90,90,30,0,2*Math.PI);
+    cxt.stroke();
+</script>
+</body>
+</html>
