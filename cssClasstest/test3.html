@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+		/*
+		flex-direction
+		flex-wrap
+		flex-flow
+		justify-content
+		align-items
+		align-content
+		*/
+		* {
+			margin: 0;
+			padding: 0;
+		}
+		
+		.m-ctn {
+			height: 200px;
+			background: #eee;
+		
+			display: flex;
+			justify-content: space-around;
+			align-items: baseline;
+		}
+		
+		.m-ctn p {
+			width: 80px;
+			height: 80px;
+			background: red;
+		}
+	</style>
+</head>
+<body>
+	<div class="m-ctn">
+		<p style="flex-basis: 200px; align-self: flex-end">1</p>
+		<p>2</p>
+		<p>3</p>
+		<p>4</p>
+		<p>5</p>
+		<p>6</p>
+	</div>
+</body>
+</html>

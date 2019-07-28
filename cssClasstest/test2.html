@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+		.m-test1 {
+			text-align: right;
+			font-size: 28px;
+			width: 100px;
+		}
+		.m-test2 {
+			text-align: right;
+			font-size: 28px;
+			width: 200px;
+		}
+		.m-test3 {
+			text-align: center;
+			font-size: 24px;
+			width: 100px;
+		}
+		.m-test4 {
+			text-align: center;
+			font-size: 24px;
+			width: 200px;
+		}
+		.m-test5 {
+			text-align: right;
+			font-size: 28px;
+			width: 100px;
+			color: red;
+		}
+		.m-test6 {
+			text-align: center;
+			font-size: 24px;
+			width: 100px;
+			color: red;
+		}
+	</style>
+</head>
+<body>
+<div id="ctn1"></div>
+<div id="ctn2"></div>
+<div id="ctn3"></div>
+<div id="ctn4"></div>
+<div id="ctn5"></div>
+<div id="ctn6"></div>
+
+<script type="text/javascript">
+	var i = 0;
+	var _html1 = '',
+		_html2 = '',
+		_html3 = '',
+		_html4 = '',
+		_html5 = '',
+		_html6 = '';
+
+	for (; i < 10000; i++) {
+		_html1 += '<div class="m-test1">1</div>';
+		_html2 += '<div class="m-test2">2</div>';
+		_html3 += '<div class="m-test3">3</div>';
+		_html4 += '<div class="m-test4">4</div>';
+		_html5 += '<div class="m-test5">5</div>';
+		_html6 += '<div class="m-test6">6</div>';
+	}
+	document.getElementById('ctn1').innerHTML = _html1;
+	document.getElementById('ctn2').innerHTML = _html2;
+	document.getElementById('ctn3').innerHTML = _html3;
+	document.getElementById('ctn4').innerHTML = _html4;
+	document.getElementById('ctn5').innerHTML = _html5;
+	document.getElementById('ctn6').innerHTML = _html6;
+</script>
+</body>
+</html>
