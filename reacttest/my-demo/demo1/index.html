@@ -1,0 +1,68 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>demo1</title>
+
+	<script src="../build/react.js"></script>
+    <script src="../build/react-dom.js"></script>
+    <script src="../build/browser.min.js"></script>
+</head>
+<body>
+	<!-- demo1 -->
+	<div id="demo1">
+	</div>
+
+	<script type="text/babel">
+		ReactDOM.render(
+			<p>hello react</p>, 
+			document.getElementById('demo1')
+		);
+	</script>
+	
+	<!-- demo2 -->
+	<div id="demo2">
+	</div>
+
+	<script type="text/babel">
+		let demo2_arr = [<em key="a">'a'</em>, <b key="b">'b'</b>, <em key="c">'c'</em>, <b key="d">'d'</b>, <em key="e">'e'</em>];
+
+		ReactDOM.render(
+			<span>look:{ demo2_arr }</span>,
+			document.getElementById('demo2')
+		);
+	</script>
+
+	<!-- demo3 -->
+	<div id="demo3"></div>
+	<script type="text/babel">
+		let demo3_arr = [ 'egg', 'milk', 'banana', 'beaf', 'fish' ];
+
+		ReactDOM.render(
+			<ul>
+				{
+					demo3_arr.map(function (food) {
+						return <li key={food}>I want to eat {food}</li>
+					})
+				}
+			</ul>,
+			document.getElementById('demo3')
+		);
+	</script>
+
+	<!-- demo4 -->
+	<div id="demo4"></div>
+	<script type="text/babel">
+		let Component1 = React.createClass({
+			render: function () {
+				return <div>look: {this.props.name}</div>
+			}
+		});
+
+		ReactDOM.render(
+			<Component1 name="Micheal" />,
+			document.getElementById('demo4')
+		)
+	</script>
+</body>
+</html>
