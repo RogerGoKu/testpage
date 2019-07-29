@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<script type="text/javascript">
+		var _img = new Image();		//reload font image
+		_img.src = "num.png"
+	</script>
+	<style type="text/css">
+		*{margin:0;padding: 0;}
+		html,body{height: 100%;}
+		#input-ctn{
+			position: fixed;
+			top:20%;
+			left: 50%;
+			width: 200px;
+			height: 150px;
+			margin-left: -100px;
+			background-color: #fff;
+			border-radius: 6px;
+			z-index: 3;
+			text-align: center;
+		}
+		#input-ctn p{
+			padding: 20px;
+		}
+		#input-sub{
+			-webkit-appearance：none;
+			width: 80px;
+			height: 40px;
+			text-align: center;
+			background-color: #e00;
+			border: 0;
+			border-radius: 10px;
+			color: #fff;
+			margin-top:20px; 
+		}
+		#input-bg{
+			position: fixed;
+			top:0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background-color: rgba(0, 0, 0, 0.4);
+			z-index: 2;
+		}
+		/*在此之上的代码都不重要*/
+		.hide{display: none !important;}
+		.num i{
+			display: block;
+			float: left;
+			height: 30px;
+			width: 25px;
+			background: url(num.png);
+		}
+		.num i.num-1{background-position: -30px -22px;}
+		.num i.num-2{background-position: -57px -22px;}
+		.num i.num-3{background-position: -86px -22px;}
+		.num i.num-4{background-position: -118px -22px;}
+		.num i.num-5{background-position: -147px -22px;}
+		.num i.num-6{background-position: -176px -22px;}
+		.num i.num-7{background-position: -207px -22px;}
+		.num i.num-8{background-position: -265px -22px;}
+		.num i.num-9{background-position: -235px -22px;}
+		.num i.num-0{background-position: -5px -22px;}
+		.num i.num-p{background-position: -288px -22px;}
+		.num i.num-d{background-position: -311px -22px;}
+	</style>
+</head>
+<body>
+<div id="input-bg"></div>
+<div id="input-ctn">
+	<p>输入数字，体验一下</p>
+	<label><input type="text" placeholder="别输中文，我没写没验证" id="input-value"/></label>
+	<button id="input-sub">确认</button>
+</div>
+
+<div class="num" id="num">
+	<!-- <i class="num-1 hide"></i>
+	<i class="num-2 hide"></i>
+	<i class="num-3 hide"></i>
+	<i class="num-4 hide"></i>
+	<i class="num-5 hide"></i>
+	<i class="num-6 hide"></i>
+	<i class="num-7 hide"></i>
+	<i class="num-8 hide"></i>
+	<i class="num-9 hide"></i>
+	<i class="num-0 hide"></i>
+	<i class="num-p hide"></i>
+	<i class="num-d hide"></i> -->
+</div>
+
+<script type="text/javascript">
+	/*
+	*	没写封装、没写判断、重在体验
+	*	author:Micheal Wayne
+	*   description: 2016.11.10
+	*/
+	var inputArr = [				//dom数组
+			document.getElementById("input-bg"),
+			document.getElementById("input-ctn"),
+			document.getElementById("input-sub"),
+			document.getElementById("input-value"),
+			],
+		num = document.getElementById("num");
+
+	function formatNum(str){			//每三位加点函数
+		var newStr = "";
+		var count = 0;
+		 
+		if(str.indexOf(".")==-1){
+		   for(var i=str.length-1;i>=0;i--){
+		 if(count % 3 == 0 && count != 0){
+		   newStr = str.charAt(i) + "," + newStr;
+		 }else{
+		   newStr = str.charAt(i) + newStr;
+		 }
+		 count++;
+		   }
+		   str = newStr + ".00"; //自动补小数点后两位
+		   return str;
+		}
+		else
+		{
+		   for(var i = str.indexOf(".")-1;i>=0;i--){
+		 if(count % 3 == 0 && count != 0){
+		   newStr = str.charAt(i) + "," + newStr;
+		 }else{
+		   newStr = str.charAt(i) + newStr; //逐个字符相接起来
+		 }
+		 count++;
+		   }
+		   str = newStr + (str + "00").substr((str + "00").indexOf("."),3);
+		   return str;
+		 }
+	}
+	function numAnim(speed){			//数字变换动画
+		return timer = setInterval(function(){
+			var nums = document.getElementById("num").getElementsByTagName("i");
+			var t;
+			for(var i = 0, ileng = nums.length; i < ileng; i++){
+				t = Math.floor(Math.random() * 10);
+				
+				if(nums[i].className.indexOf("hide") > -1){
+					if(nums[i].className.indexOf("num-p") > -1 || nums[i].className.indexOf("num-d") > -1){
+						continue
+					}else{
+						nums[i].className = "hide num-" + t;
+					}
+				}else{
+					if(nums[i].className.indexOf("num-p") > -1 || nums[i].className.indexOf("num-d") > -1){
+						continue
+					}else{
+						nums[i].className = "num-" + t;
+					}
+				}
+				
+			}
+		}, speed);
+	}
+	function numAdd(speed){				//数字位数增加动画
+		return timeadd = setInterval(function(){
+			var hides = document.getElementById("num").getElementsByClassName("hide"),
+				hleng = hides.length;
+				console.log(hleng);
+			if(!hleng){
+				return clearInterval(timeadd);
+			}
+			if(hides[hides.length - 1].className.indexOf("num-d") > -1){
+				hides[hides.length - 1].className = "num-d";
+				hides[hides.length - 2].className = hides[hides.length - 2].className.replace("hide", " ");
+			}else{
+				hides[hides.length - 1].className = hides[hides.length - 1].className.replace("hide", " ");
+			}
+		}, speed);
+	}
+
+	inputArr[2].onclick = function(){				//确认按钮，点点点
+		var v = formatNum(inputArr[3].value.toString());
+		
+		var vleng = v.length,
+			vPow = v.charAt(0);
+
+		inputArr[0].style.display = 'none';
+		inputArr[1].style.display = 'none';
+		console.log(v);
+		var inner = '',
+			finalInner = '';
+		for(var i = 0; i < vleng; i++){
+			if(v.charAt(i) == ','){
+				inner += '<i class="hide num-d"></i>';
+				finalInner += '<i class="num-d"></i>';
+			}else if(v.charAt(i) == '.'){
+				inner += '<i class="hide num-p"></i>';
+				finalInner += '<i class="num-p"></i>';
+			}else{
+				inner += '<i class="hide num-' + v.charAt(i) + '"></i>';
+				finalInner += '<i class="num-' + v.charAt(i) + '"></i>';
+			}
+		}
+		num.innerHTML = inner;
+		numAnim(60);
+		numAdd(200);
+		setTimeout(function(){
+			clearInterval(timer);
+			num.innerHTML = finalInner;
+		},vleng*200-200);
+	}
+	
+
+</script>
+</body>
+</html>
