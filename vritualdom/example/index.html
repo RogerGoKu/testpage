@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <style type="text/css">
+        .u-red{
+            color: #ff0000;
+        }
+        .u-blue{
+            color: #0000ff;
+        }
+        .minPx-top{border:0;}
+            .minPx-top {
+                background-position: left bottom;
+                background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0.5, red), color-stop(0.5, red));
+            }
+            .minPx-top{
+                background-repeat: repeat-x;
+                -webkit-background-size: 100% 1px;
+            }
+    </style>
+</head>
+<body>
+<script type="text/javascript" src="../dist/vritual.js"></script>
+<div class="minPx-top">fsdasdfsadfasdf</div>
+
+<script type="text/javascript">
+
+    var domtree = {
+        tagName: 'section',
+        props: {
+            class: 'j-test',
+            'data-index': '1'
+        },
+        children: [
+            { tagName: 'p', props: { class: 'j-test_p' }, children: ['addddddd', {tagName: 'span', children: ['this is a span']}] },
+            456789,
+            { tagName: 'input', props: { type: 'text', value: 456 } }
+        ]
+    };
+
+    var dom = new Vdom(domtree);
+    dom.init(document.body);
+
+</script>
+
+</body>
+</html>
