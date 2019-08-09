@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>3D</title>
+	<style>
+		div {
+			margin: auto;
+			position: relative;
+			width: 250px;
+			height: 350px;
+		}
+		img {
+			position: absolute;
+			transition: all .3s;
+			z-index: 0;
+		}
+		.img2 {
+			transform: rotateY(-180deg);
+			z-index: -1;
+		}
+		div:hover .img2 {
+			z-index: 0;
+			transform: rotateY(0deg);
+		}
+		div:hover .img1 {
+			z-index: -1;
+			transform: rotateY(180deg)
+		}
+	</style>
+</head>
+<body>
+	<div>
+		<img class="img2" src="img/back.jpg">
+		<img class="img1" src="img/front.jpg">
+	</div>
+</body>
+</html>
