@@ -2,6 +2,7 @@
 
 const { app, assert } = require('egg-mock/bootstrap');
 
+
 describe('test/app/controller/home.test.js', () => {
   it('should assert', () => {
     const pkg = require('../../../package.json');
