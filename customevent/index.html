@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+</head>
+<body>
+<button id="btn">event</button>
+
+<script type="text/javascript">
+var event = new CustomEvent('test-event', {
+	detail: {
+		id: 'test'
+	}
+});
+
+window.addEventListener('test-event', ({ detail: { id } }) => {
+    console.log('id', id)
+});
+
+document.querySelector('#btn').onclick = function () {
+	window.dispatchEvent(event);
+}
+
+</script>
+</body>
+</html>
