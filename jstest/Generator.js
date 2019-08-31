@@ -13,6 +13,7 @@ console.log(it1.next());
 console.log(it1.next());
 console.log(it1.next());
 
+
 function *test2 () {
 	let val = yield setTimeout(() => {
 		it2.next('time out')

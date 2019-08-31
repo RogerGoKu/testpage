@@ -4,6 +4,7 @@ var compare = require('./compare');
 var patch = require('./patch');
 var Observer = require('./Observer');
 
+
 function getElements (tree) {
     var _children = [];
     var tree_children = tree.children || [];

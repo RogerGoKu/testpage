@@ -1,6 +1,7 @@
 /*
 * 观察者
 */
+
 var _ = require('./util');
 
 function observer (data) {

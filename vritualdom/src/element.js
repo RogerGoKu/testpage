@@ -2,6 +2,7 @@
 * 创建虚拟节点
 */
 
+
 function Element (tagName, props, children) {
     this.tagName = tagName;
     this.props = props;

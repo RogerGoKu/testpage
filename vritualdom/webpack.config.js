@@ -2,7 +2,7 @@ var path = require('path');
 var webpack = require('webpack');
 var libraryName = 'Vdom';
 var myBanner = `
-  test
+  my test
 `;
 
 
