@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport">
+	<title></title>
+	<script src="jquery-1.11.0.min.js"></script>
+</head>
+<body>
+<button id="btn">btn</button>
+<script>
+$('#btn').click(function () {
+	console.log('clicked.');
+});
+
+// debug $('#btn').click();
+
+setTimeout(() => console.log('log 1'));
+
+new Promise(resolve => {
+	console.log('log 2');
+	resolve();
+}).then(() => console.log('log 3'));
+console.log('log 4');
+
+</script>
+</body>
+</html>
