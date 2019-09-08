@@ -12,6 +12,7 @@ function getScrollTop() {
     return scrollPos;   
 } 
 
+
 if (typeof jQuery === 'undefined') {
 	Object.prototype.scrollend = function() {
 		var timer_start = true;
