@@ -17,7 +17,5 @@
 ├─minvue			迷你vue
 ├─platformtest		平台测试
 ├─reacttest			react测试
-├─scrollend			滚动停止
-├─vritualdom		虚拟节点
 └─vuetest			vue测试
 
