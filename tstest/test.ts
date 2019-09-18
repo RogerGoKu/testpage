@@ -1,4 +1,9 @@
 
+let num: number = 1;
+let str: string = 'str';
+let bool: boolean = false;
+let arr: any[] = [];
+
 
 function test<T> (list: T[]): T[] {
 	let _arr: T[];
