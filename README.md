@@ -14,8 +14,8 @@
 ├─historytest		历史记录测试
 ├─jstest			js测试
 ├─laydatetest		日期插件测试
-├─minvue			迷你vue
 ├─platformtest		平台测试
 ├─reacttest			react测试
+├─tstest			TypeScript测试
 └─vuetest			vue测试
 
