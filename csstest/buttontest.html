@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- include header -->
+    
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="apple-touch-fullscreen" content="YES" />
+	<script src="http://s.thsi.cn/ijijin/js/ijijin.init.js"></script>
+	<link rel="stylesheet" href="http://s.thsi.cn/ijijin/css/moo-css-base/mobile.min.css"/>
+    <title> </title>
+	<style>
+	.rotate-button {
+  display:inline-block;
+  width:150px;
+  height: 30px;
+  text-align:center;
+  transform-style:preserve-3d;
+  cursor:pointer;
+  transition:all .3s ease;
+  font-family: 'arial'
+}
+.rotate-button .rotate-button-face, .rotate-button .rotate-button-face-back {
+  position:absolute;
+  display:block;
+  border:1px solid #35495e;
+  transition:all .5s;
+  color:#35495e;
+  text-decoration:none;
+  width:150px;
+  height: 30px;
+  line-height:30px;
+  border-radius: 4px;
+}
+.rotate-button .rotate-button-face {
+  background-color:#fff;
+  transform:translateZ(15px);
+}
+.rotate-button .rotate-button-face-back {
+  background-color:#35495e;
+  color:#42b883;
+  border:1px solid #42b883;
+  transform:rotateX(-90deg) translateZ(15px);
+}
+.rotate-button:hover {
+  transform:rotateX(90deg);
+}
+	</style>
+  </head>
+  <body>
+	<a class="rotate-button">
+  <span class="rotate-button-face">button1</span>
+  <span class="rotate-button-face-back">button2</span>
+</a>
+
+<style>
+.fill-button {
+  position: relative;
+  overflow:hidden;
+  display:inline-block;
+  width:150px;
+  height:30px;
+  border:1px solid #35495e;
+  text-align:center;
+  box-sizing:border-box;
+  color:#35495e;
+  text-decoration:none;
+  cursor: pointer;
+  line-height:28px;
+  font-family: 'arial';
+  border-radius: 4px;
+}
+.fill-button > span {
+  display:block;
+}
+.fill-button > .fill-button-hover:after, .fill-button > .fill-button-hover:before {
+  position:absolute;
+  top:0;
+  opacity:0;
+  display:block;
+  content:"";
+  width:0;
+  height:30px;
+}
+.fill-button > .fill-button-hover:after {
+  background-color:#35495e;
+  transform:skewX(45deg);
+  transform-origin:center center;
+  transition:all .35s, opacity .4s;
+  left:50%;
+}
+.fill-button .fill-button-hover:before {
+  background-color:#42b883;
+  transition:opacity 1s;
+}
+
+.fill-button .fill-button-text {
+  z-index:1;
+  position:relative;
+  color:#35495e;
+  transition:color .35s;
+}
+.fill-button:hover .fill-button-text {
+  color:#42b883;
+}
+.fill-button .fill-button-hover:hover:after {
+  opacity:1;
+  left:2%;
+  width:95%;
+  transform:skewX(45deg);
+}
+.fill-button > .fill-button-hover:hover:before {
+  opacity: 1;
+  left: 0;
+  width:100%;
+}
+</style>
+<a class="fill-button">
+  <span class="fill-button-hover">		
+    <span class="fill-button-text">button3</span>
+  </span>
+</a>
+
+
+<style>
+.border-button {
+  position:relative;
+  display:inline-block;
+  width:150px;
+  height:30px;
+  background-color:#d9f0e6;
+  line-height:29px;
+  color:#35495e;
+  font-family:'arial';
+  text-align:center;
+  text-decoration:none;
+  cursor: pointer;
+  border-radius: 4px;
+  overflow:hidden
+}
+.border-button:after {
+  position:absolute;
+  display:block;
+  content:"";
+  width:100%;
+  height:1px;
+  background-color:#42b883;
+  transform:scale3d(0,1,1);
+  transform-origin:left;
+  transition:transform .3s;
+}
+.border-button:hover:after {
+  transform:scale3d(1,1,1);
+}
+</style>
+<a class="border-button">
+  <span>button4</span>
+</a>
+
+<style>
+.button-flip {
+  display: inline-block;
+  position: relative;
+  width: 150px;
+  height:30px;
+  text-align:center;
+  font-family: 'arial';
+  transform-style: preserve-3d;
+  cursor: pointer;
+  box-sizing:border-box;
+  transition:all 0.5s ease;
+}
+.button-flip > .button-flip-face, .button-flip > .button-flip-face-back {
+  position: absolute;
+  top: 0;
+  display: block;
+  width: 100%;
+  height:30px;
+  line-height: 28px;
+  border:1px solid #35495e;
+  color:#35495e;
+  border-radius: 4px;
+  overflow: hidden;
+  transition:all 0.5s ease;
+}
+.button-flip > .button-flip-face-back {
+  opacity: 0;
+  color: transparent;
+  background-color:#35495e;
+  transform: rotateY(180deg);
+}
+.button-flip:hover > .button-flip-face {
+  opacity: 0;
+  color: transparent;
+}
+.button-flip:hover > .button-flip-face-back {
+  opacity: 1;
+  color:#42b883;
+}
+.button-flip:hover {
+  transform: rotateY(180deg);
+}
+</style>
+<a class="button-flip">
+  <span class="button-flip-face">button5</span>
+  <span class="button-flip-face-back">button6</span>
+</a>
+  </body>
+</html>
