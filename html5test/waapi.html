@@ -1,0 +1,22 @@
+<!doctype html>
+<html>
+	<head>
+	</head>
+	<body>
+		<p class="a" style="width:70px;height:70px;background-color:red">test</p>
+<script>
+	var demoTumbling = [
+		{ color: 'blue', transform: 'rotate(0) translate3D(-50%, -50%, 0)' },
+		{ color: '#fff' },
+		{ color: 'red', transform: 'rotate(360deg) translate3D(-50%, -50%, 0)' },
+	];
+	var demoTiming = {
+		duration: 3000,
+		iterations: Infinity
+	};
+	
+	var animate = document.querySelector('.a').animate(demoTumbling, demoTiming);
+
+</script>
+	</body>
+</html>
