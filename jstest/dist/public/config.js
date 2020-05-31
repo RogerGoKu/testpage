@@ -68,7 +68,7 @@
                 subTitle: '楼澜专注搭建一个开放透明、真实高效的办公房源平台，构建行业的数字化基础设施，通过科技和数据提升办公场景的效率、体验和价值，助推办公场景面向未来的变革。',
                 otherTitles: `<p class="u-p2 g-fs28 g-mt60">Email：</p>
                 <p class="u-p2 g-fs28 g-mt20">客服邮箱：<a s-cr_white href="mailto:${EMAILS.service}">${EMAILS.service}</a><br/>
-                    商务合作：<a s-cr_white href="mailto:${EMAILS.cooperation}">${EMAILS.cooperation}</a</p>
+                    商务合作：<a s-cr_white href="mailto:${EMAILS.cooperation}">${EMAILS.cooperation}</a></p>
                 <p class="u-p2"><img src="./public/i-qrcode.png" class="qr-code g-mt60" alt="楼澜小程序二维码"/></p>`
             }
         ]
